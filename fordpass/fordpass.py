@@ -85,7 +85,7 @@ class Vehicle(object):
         else:
             r.raise_for_status()
             
-    def force_car_refresh(self):
+    def force_vehicle_refresh(self):
         '''Forces server to get an update from vehicle'''
 
         self.__acquireToken() 
