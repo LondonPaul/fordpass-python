@@ -99,7 +99,7 @@ class Vehicle(object):
             'auth-token': self.token
         }
 
-        r = requests.put(f'{baseUrl}/vehicles/v2/{self.vin}/status", params=params, headers=headers)        
+        r = requests.put(f'{baseUrl}/vehicles/v2/{self.vin}/status', params=params, headers=headers)        
                          
         if r.status_code == 200:
             return 'Requested refresh from vehicle'
