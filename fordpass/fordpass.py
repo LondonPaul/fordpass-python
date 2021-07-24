@@ -84,6 +84,27 @@ class Vehicle(object):
             return result['vehiclestatus']
         else:
             r.raise_for_status()
+            
+    def force_car_refresh(self):
+        '''Forces server to get an update from vehicle'''
+
+        self.__acquireToken() 
+
+        params = {
+            'lrdt': '01-01-1970 00:00:00'
+        }
+
+        headers = {
+            **apiHeaders,
+            'auth-token': self.token
+        }
+
+        r = requests.put(f'{baseUrl}/vehicles/v2/{self.vin}/status", params=params, headers=headers)        
+                         
+        if r.status_code == 200:
+            return 'Requested refresh from vehicle'
+        else:
+            r.raise_for_status()            
     
     def start(self):
         '''
