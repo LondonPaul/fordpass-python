@@ -102,7 +102,7 @@ class Vehicle(object):
         r = requests.put(f'{baseUrl}/vehicles/v2/{self.vin}/status', params=params, headers=headers)        
                          
         if r.status_code == 200:
-            return 'Requested refresh from vehicle'
+            return 'Requested refresh from vehicle. Wait a minute or two and then perform regular status check.'
         else:
             r.raise_for_status()            
     
